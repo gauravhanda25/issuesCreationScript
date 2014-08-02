@@ -7,7 +7,7 @@ This project contains a Php script that can be used to create GitHub and BitBuck
 Setup Instructions
 ------------------
 
-1. Create a php script and execute it using command prompt. In command prompt change the directory to reach the root folder of Php in wamp directory where php.exe file is present. Alternatively, if the environmental variable for php is set in the system then this is not required. Php.exe file is normally present in 
+1. Create a php script and execute it using command prompt. In order to run that file open command prompt and change the directory to reach the root folder of Php in wamp directory where php.exe file is present. Alternatively, if the environmental variable for php is set in the system then this is not required. Php.exe file is normally present in 
 **\<Drive in which wamp is installed>\wamp\bin\php\\\<phpversion>** eg: **C:\wamp\bin\php\php5.3.8**
  
 2. Use the following command to execute the script
