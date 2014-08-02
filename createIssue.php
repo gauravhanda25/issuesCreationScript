@@ -4,9 +4,9 @@
  * @function Abstract PROTECTED postIssue 
  * @function PUBLIC static getDetailsFromUrl 
  * @function PUBLIC make_api_call 
- * @function PUBLIC static checkInitials 
+ * @function PUBLIC static checkInputParams 
  */ 
-abstract class CreateIssues 
+abstract class CreateIssue 
 {
    /**
     * Abstract Function to post the Issue to the Repository 
@@ -65,7 +65,7 @@ abstract class CreateIssues
    }
    
    /**
-    * Function Name: checkInitials()
+    * Function Name: checkInputParams()
     * Function to check the required details are passed as arguments to the script in the command line
     * If no arguments are passed, then asks users to enter each argument manually one by one
     * Script Requires following parameters: 
@@ -76,7 +76,7 @@ abstract class CreateIssues
     * stepsToReproduce - The Steps required to reproduce the issue
     * All details are mandatory
     */ 
-   public static function checkInitials() {
+   public static function checkInputParams() {
      //An array to store all the input parameters
      $inputArray = array();
      
@@ -160,11 +160,11 @@ abstract class CreateIssues
 
 /**
 * Class Name: CreateGitHubIssue
-* Child Class that extends CreateIssues Abstract Class
+* Child Class that extends CreateIssue Abstract Class
 * Used for posting Issue to GitHub
 * @function PUBLIC postIssue  
 */ 
-class CreateGitHubIssue extends CreateIssues
+class CreateGitHubIssue extends CreateIssue
 {
  /**
   * Function to post the Issue to the GitHub Repository 
@@ -201,11 +201,11 @@ class CreateGitHubIssue extends CreateIssues
 
 /**
 * Class Name: CreateBitBucketIssue
-* Child Class that extends CreateIssues Abstract Class
+* Child Class that extends CreateIssue Abstract Class
 * Used for posting Issue to BitBucket
 * @function PUBLIC postIssue  
 */ 
-class CreateBitBucketIssue extends CreateIssues
+class CreateBitBucketIssue extends CreateIssue
 {
  /**
   * Function to post the Issue to the BitBucket Repository 
@@ -242,8 +242,8 @@ class CreateBitBucketIssue extends CreateIssues
 
 //Main Part of the Program
 try {
- $inputData = CreateIssues::checkInitials();
- $repositoryUrlDetails = CreateIssues::getDetailsFromUrl($inputData['repositoryUrl']);
+ $inputData = CreateIssue::checkInputParams();
+ $repositoryUrlDetails = CreateIssue::getDetailsFromUrl($inputData['repositoryUrl']);
 
  if (isset($repositoryUrlDetails['host']) && ! empty($repositoryUrlDetails['host'])) {
    $urlPath = explode("/", $repositoryUrlDetails['path']);
