@@ -240,7 +240,7 @@ class CreateBitBucketIssue extends CreateIssue
  }
 }
 
-//Main Part of the Program
+//Main Code
 try {
  $inputData = CreateIssue::checkInputParams();
  $repositoryUrlDetails = CreateIssue::getDetailsFromUrl($inputData['repositoryUrl']);
