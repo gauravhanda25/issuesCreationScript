@@ -293,7 +293,7 @@ class BitBucket extends Issue
 	}
 }
 
-//Start of execution
+//Start of execution of script
 try {
 	$inputArgs = Issue::check_params();
 	$repositoryUrlDetails = Issue::fetch_url_data($inputArgs['repositoryUrl']);
